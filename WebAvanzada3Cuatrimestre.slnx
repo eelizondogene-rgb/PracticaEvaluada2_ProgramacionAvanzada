@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path="instruccions.md" />
+  </Folder>
+  <Folder Name="/Pruebas/">
+  </Folder>
+  <Project Path="WebAvanzada3Cuatrimestre.Application/WebAvanzada3Cuatrimestre.Application.csproj" />
+  <Project Path="WebAvanzada3Cuatrimestre.Domain/WebAvanzada3Cuatrimestre.Domain.csproj" />
+  <Project Path="WebAvanzada3Cuatrimestre.Infrastructure/WebAvanzada3Cuatrimestre.Infrastructure.csproj" />
+  <Project Path="WebAvanzada3Cuatrimestre/WebAvanzada3Cuatrimestre.csproj" />
+</Solution>

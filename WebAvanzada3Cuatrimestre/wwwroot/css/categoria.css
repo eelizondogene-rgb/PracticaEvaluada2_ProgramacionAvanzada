@@ -1,0 +1,302 @@
+html {
+  min-height: 100%;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: #203431;
+  background: #f3f7f5;
+  font-family: "Aptos", "Trebuchet MS", sans-serif;
+}
+
+a {
+  color: #087e75;
+}
+
+a:hover {
+  color: #075f59;
+}
+
+.app-navbar {
+  min-height: 76px;
+  padding: .65rem 0;
+  background: #fff;
+  border-bottom: 1px solid #dfe8e4;
+}
+
+.app-navbar .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0;
+  color: #183b36;
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+
+.brand-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  color: #fff;
+  background: #087e75;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.brand-accent {
+  color: #087e75;
+}
+
+.app-navbar .nav-link {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  margin-left: .35rem;
+  padding: .65rem .9rem;
+  color: #526560;
+  border-radius: 6px;
+  font-size: .94rem;
+  font-weight: 600;
+  transition: color .16s ease, background-color .16s ease;
+}
+
+.app-navbar .nav-link:hover,
+.app-navbar .nav-link:focus {
+  color: #075f59;
+  background: #e8f4f0;
+}
+
+.app-navbar .navbar-toggler {
+  border-color: #dfe8e4;
+}
+
+.app-shell {
+  min-height: calc(100vh - 144px);
+  padding: 2.5rem 0 3rem;
+}
+
+.app-main {
+  max-width: 1160px;
+}
+
+.app-footer {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  border-top: 1px solid #dfe8e4;
+  background: #fff;
+  color: #70817b;
+  font-size: .86rem;
+}
+
+.app-footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.home-page {
+  max-width: 940px;
+  margin: 1.5rem auto 0;
+}
+
+.home-heading {
+  padding: 1.6rem 0 2.5rem;
+}
+
+.eyebrow,
+.home-feature-label {
+  color: #087e75;
+  font-size: .76rem;
+  font-weight: 750;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.home-heading h1 {
+  margin: 1rem 0 .85rem;
+  color: #183b36;
+  font-size: 3.5rem;
+  font-weight: 750;
+  line-height: 1.04;
+}
+
+.home-heading h1 span {
+  color: #087e75;
+}
+
+.home-heading > p {
+  max-width: 520px;
+  margin: 0;
+  color: #647771;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.home-feature {
+  display: flex;
+  min-height: 156px;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.75rem 2rem;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #dfe8e4;
+  border-left: 4px solid #087e75;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.home-feature:hover {
+  color: inherit;
+  border-color: #a9cec3;
+  border-left-color: #e36b47;
+  box-shadow: 0 12px 28px rgba(25, 63, 55, .08);
+  transform: translateY(-2px);
+}
+
+.home-feature-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  place-items: center;
+  color: #087e75;
+  background: #e8f4f0;
+  border-radius: 7px;
+  font-size: 1.6rem;
+}
+
+.home-feature-copy {
+  flex: 1;
+}
+
+.home-feature-copy h2 {
+  margin: .25rem 0;
+  color: #203431;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.home-feature-copy p {
+  margin: 0;
+  color: #70817b;
+  line-height: 1.5;
+}
+
+.home-feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #087e75;
+  font-size: .92rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.home-note {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: 1.5rem;
+  color: #647771;
+}
+
+.home-note-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  color: #087e75;
+  background: #dcefe8;
+  border-radius: 50%;
+}
+
+.home-note p {
+  margin: 0;
+  font-size: .91rem;
+}
+
+.home-note strong {
+  color: #203431;
+}
+
+.btn:focus-visible,
+.btn:active:focus,
+.btn-link.nav-link:focus-visible,
+.form-control:focus,
+.form-check-input:focus,
+.home-feature:focus-visible {
+  outline: 3px solid rgba(8, 126, 117, .3);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+@media (max-width: 575.98px) {
+  .app-shell {
+    padding: 1.2rem 0 2rem;
+  }
+
+  .home-page {
+    margin-top: .5rem;
+  }
+
+  .home-heading {
+    padding: 1rem 0 1.7rem;
+  }
+
+  .home-heading h1 {
+    font-size: 2.7rem;
+  }
+
+  .home-feature {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .home-feature-copy {
+    flex-basis: calc(100% - 74px);
+  }
+
+  .home-feature-copy p {
+    font-size: .9rem;
+  }
+
+  .home-feature-link {
+    margin-left: 74px;
+  }
+
+  .home-note {
+    align-items: flex-start;
+  }
+
+  .app-footer .container {
+    flex-direction: column;
+    gap: .3rem;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+  }
+}

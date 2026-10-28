@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAvanzada3Cuatrimestre.Application.Mapping;
+using WebAvanzada3Cuatrimestre.Application.Services;
 using WebAvanzada3Cuatrimestre.Infrastructure.Data;
 using WebAvanzada3Cuatrimestre.Infrastructure.Repository;
 using WebAvanzada3Cuatrimestre.Middleware;
@@ -12,6 +13,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Repositorio generico: misma interfaz e implementacion vistas en clase.
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 // Persona 2/3: registrar los servicios de Categoria y Producto al implementarlos.
+
+// Persona 2
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddScoped<ICategoriaServicio, CategoriaServicio>();
+
 builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));
 
 var app = builder.Build();

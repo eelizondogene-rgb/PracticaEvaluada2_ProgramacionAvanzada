@@ -1,0 +1,35 @@
+﻿@model WebAvanzada3Cuatrimestre.Application.Dtos.CategoriaDto
+
+<div class="modal fade" id="modalCrearCategoria" tabindex="-1" aria-labelledby="modalCrearCategoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered vehicle-modal-dialog">
+        <div class="modal-content vehicle-modal">
+            <form id="formCrearCategoria" asp-controller="Categoria" asp-action="CrearCategoria" method="post">
+                <div class="modal-header vehicle-modal-header">
+                    <div class="vehicle-modal-heading">
+                        <span class="vehicle-modal-icon"><i class="bi bi-tag"></i></span>
+                        <div>
+                            <span class="vehicle-modal-eyebrow">NUEVO REGISTRO</span>
+                            <h5 class="modal-title" id="modalCrearCategoriaLabel">Agregar categoría</h5>
+                            <p class="vehicle-modal-subtitle">Ingresa el nombre de la categoría. Es un dato requerido.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body vehicle-modal-body">
+                    <div class="vehicle-field mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <div class="vehicle-control">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ej. Material quirúrgico" autocomplete="off" required />
+                        </div>
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer vehicle-modal-footer">
+                    <button type="button" class="btn btn-modal-cancel" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-modal-primary" id="btnGuardarCategoria"><i class="bi bi-check2"></i> Guardar categoría</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

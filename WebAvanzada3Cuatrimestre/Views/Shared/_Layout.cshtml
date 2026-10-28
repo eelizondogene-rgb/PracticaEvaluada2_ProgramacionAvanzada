@@ -29,7 +29,10 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
-                        @* Integrar aquí enlaces a Categoria y Producto una vez creados los controladores. *@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Categoria" asp-action="Index"><i class="bi bi-car-front-fill"></i> Categorías</a>
+                        </li>
+                        @* Persona 3: aquí va el enlace a Producto *@
                     </ul>
                 </div>
             </div>
@@ -55,8 +58,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-
-
-
-

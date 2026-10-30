@@ -10,10 +10,6 @@ public class Categoria
 
     public bool ValidarReglaNegocioNombreRequerido()
     {
-        if (!string.IsNullOrWhiteSpace(Nombre))
-        {
-            return true;
-        }
-        return false;
+        return Nombre != "";
     }
 }

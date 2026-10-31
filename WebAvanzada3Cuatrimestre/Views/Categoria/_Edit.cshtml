@@ -1,0 +1,36 @@
+﻿@model WebAvanzada3Cuatrimestre.Application.Dtos.CategoriaDto
+
+<div class="modal fade" id="modalEditarCategoria" tabindex="-1" aria-labelledby="modalEditarCategoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered vehicle-modal-dialog">
+        <div class="modal-content vehicle-modal">
+            <form id="formEditarCategoria" asp-controller="Categoria" asp-action="ActualizarCategoria" method="post">
+                <div class="modal-header vehicle-modal-header">
+                    <div class="vehicle-modal-heading">
+                        <span class="vehicle-modal-icon"><i class="bi bi-pencil-square"></i></span>
+                        <div>
+                            <span class="vehicle-modal-eyebrow">ACTUALIZAR REGISTRO</span>
+                            <h5 class="modal-title" id="modalEditarCategoriaLabel">Editar categoría</h5>
+                            <p class="vehicle-modal-subtitle">Revisa y actualiza la información de la categoría.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body vehicle-modal-body">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="vehicle-field mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <div class="vehicle-control">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ej. Material quirúrgico" autocomplete="off" required />
+                        </div>
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer vehicle-modal-footer">
+                    <button type="button" class="btn btn-modal-cancel" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-modal-primary" id="btnEditarCategoria"><i class="bi bi-check2"></i> Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

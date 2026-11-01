@@ -38,6 +38,20 @@ public class CategoriaRepository : ICategoriaRepository
             .FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
+    public async Task<bool> ExistsCategoriaByNombreAsync(
+        string nombre,
+        int idExcluir,
+        CancellationToken cancellationToken = default)
+    {
+        var nombreNormalizado = nombre.Trim().ToLower();
+
+        return await _context.Categorias
+            .AsNoTracking()
+            .AnyAsync(
+                c => c.Id != idExcluir && c.Nombre.Trim().ToLower() == nombreNormalizado,
+                cancellationToken);
+    }
+
     public async Task<bool> CreateCategoriaAsync(
         Categoria categoria,
         CancellationToken cancellationToken = default)
@@ -56,6 +70,11 @@ public class CategoriaRepository : ICategoriaRepository
         if (categoriaExistente is null)
         {
             return false;
+        }
+
+        if (categoriaExistente.Nombre == categoria.Nombre)
+        {
+            return true;
         }
 
         categoriaExistente.Nombre = categoria.Nombre;

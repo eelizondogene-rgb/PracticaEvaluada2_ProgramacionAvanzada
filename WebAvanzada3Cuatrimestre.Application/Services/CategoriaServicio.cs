@@ -34,11 +34,20 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
             var categoriaEntity = _mapper.Map<Domain.Categoria>(categoria);
+            categoriaEntity.Nombre = (categoriaEntity.Nombre ?? string.Empty).Trim();
 
             if (!categoriaEntity.ValidarReglaNegocioNombreRequerido())
             {
                 respuesta.EsCorrecto = false;
                 respuesta.Mensaje = "El nombre de la categoría es requerido.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
+            if (await _categoriaRepository.ExistsCategoriaByNombreAsync(categoriaEntity.Nombre, categoriaEntity.Id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "Ya existe una categoría con ese nombre.";
                 respuesta.Codigo = 400;
                 return respuesta;
             }
@@ -59,11 +68,20 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
             var categoriaEntity = _mapper.Map<Domain.Categoria>(categoria);
+            categoriaEntity.Nombre = (categoriaEntity.Nombre ?? string.Empty).Trim();
 
             if (!categoriaEntity.ValidarReglaNegocioNombreRequerido())
             {
                 respuesta.EsCorrecto = false;
                 respuesta.Mensaje = "El nombre de la categoría es requerido.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
+            if (await _categoriaRepository.ExistsCategoriaByNombreAsync(categoriaEntity.Nombre, categoriaEntity.Id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "Ya existe una categoría con ese nombre.";
                 respuesta.Codigo = 400;
                 return respuesta;
             }

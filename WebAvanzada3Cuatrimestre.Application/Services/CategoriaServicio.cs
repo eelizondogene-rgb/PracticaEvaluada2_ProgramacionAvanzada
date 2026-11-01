@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebAvanzada3Cuatrimestre.Application.Dtos;
-using WebAvanzada3Cuatrimestre.Infrastructure.Repository;
+using WebAvanzada3Cuatrimestre.Application.Repositories;
 
 namespace WebAvanzada3Cuatrimestre.Application.Services
 {

@@ -1,6 +1,6 @@
-﻿using WebAvanzada3Cuatrimestre.Domain;
+using WebAvanzada3Cuatrimestre.Domain;
 
-namespace WebAvanzada3Cuatrimestre.Infrastructure.Repository;
+namespace WebAvanzada3Cuatrimestre.Application.Repositories;
 
 public interface ICategoriaRepository
 {

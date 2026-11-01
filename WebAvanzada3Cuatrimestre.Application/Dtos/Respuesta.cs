@@ -14,7 +14,7 @@ namespace WebAvanzada3Cuatrimestre.Application.Dtos
 
         public int Codigo { get; set; }
 
-        public T Dato {get; set; }
+        public T? Dato {get; set; }
 
 
         public Respuesta()

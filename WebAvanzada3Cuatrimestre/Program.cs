@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAvanzada3Cuatrimestre.Application.Mapping;
+using WebAvanzada3Cuatrimestre.Application.Repositories;
 using WebAvanzada3Cuatrimestre.Application.Services;
 using WebAvanzada3Cuatrimestre.Infrastructure.Data;
 using WebAvanzada3Cuatrimestre.Infrastructure.Repository;

@@ -102,6 +102,14 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
 
+            if (await _categoriaRepository.TieneProductosAsociadosAsync(id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "No se puede eliminar la categoría porque tiene productos asociados.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
             if (!await _categoriaRepository.DeleteCategoriaAsync(id, cancellationToken))
             {
                 respuesta.EsCorrecto = false;

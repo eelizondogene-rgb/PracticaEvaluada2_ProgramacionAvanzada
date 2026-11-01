@@ -52,6 +52,15 @@ public class CategoriaRepository : ICategoriaRepository
                 cancellationToken);
     }
 
+    public async Task<bool> TieneProductosAsociadosAsync(
+        int categoriaId,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Productos
+            .AsNoTracking()
+            .AnyAsync(p => p.CategoriaId == categoriaId, cancellationToken);
+    }
+
     public async Task<bool> CreateCategoriaAsync(
         Categoria categoria,
         CancellationToken cancellationToken = default)

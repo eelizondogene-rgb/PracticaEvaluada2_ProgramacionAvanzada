@@ -44,6 +44,11 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
                 return respuesta;
             }
 
+            if (NombreSuperaLongitudMaxima(respuesta, categoriaEntity.Nombre))
+            {
+                return respuesta;
+            }
+
             if (await _categoriaRepository.ExistsCategoriaByNombreAsync(categoriaEntity.Nombre, categoriaEntity.Id, cancellationToken))
             {
                 respuesta.EsCorrecto = false;
@@ -75,6 +80,11 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
                 respuesta.EsCorrecto = false;
                 respuesta.Mensaje = "El nombre de la categoría es requerido.";
                 respuesta.Codigo = 400;
+                return respuesta;
+            }
+
+            if (NombreSuperaLongitudMaxima(respuesta, categoriaEntity.Nombre))
+            {
                 return respuesta;
             }
 
@@ -118,6 +128,21 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
             }
 
             return respuesta;
+        }
+
+        private const int LongitudMaximaNombre = 100;
+
+        private static bool NombreSuperaLongitudMaxima(Respuesta<CategoriaDto> respuesta, string nombre)
+        {
+            if (nombre.Length <= LongitudMaximaNombre)
+            {
+                return false;
+            }
+
+            respuesta.EsCorrecto = false;
+            respuesta.Mensaje = "El nombre de la categoría no puede superar los 100 caracteres.";
+            respuesta.Codigo = 400;
+            return true;
         }
     }
 }

@@ -24,7 +24,6 @@
                     { data: 'nombre', render: DataTable.render.text() },
                     {
                         data: null,
-                        title: 'Acciones',
                         className: 'dt-actions-cell',
                         orderable: false,
                         searchable: false,

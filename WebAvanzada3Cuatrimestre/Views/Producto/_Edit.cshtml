@@ -1,0 +1,51 @@
+@model WebAvanzada3Cuatrimestre.Application.Dtos.ProductoDto
+@using WebAvanzada3Cuatrimestre.Application.Dtos
+@{
+    var categorias = ViewData["Categorias"] as List<CategoriaDto> ?? new List<CategoriaDto>();
+}
+<div class="modal fade" id="modalEditarProducto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered vehicle-modal-dialog">
+        <div class="modal-content vehicle-modal">
+            <form id="formEditarProducto" asp-controller="Producto" asp-action="ActualizarProducto" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-header vehicle-modal-header">
+                    <div class="vehicle-modal-heading">
+                        <span class="vehicle-modal-icon"><i class="bi bi-capsule"></i></span>
+                        <div>
+                            <h5 class="modal-title">Editar producto</h5>
+                            <p class="vehicle-modal-subtitle">Indicá el nombre y seleccioná una categoría.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body vehicle-modal-body">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="vehicle-field mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <div class="vehicle-control">
+                            <input asp-for="Nombre" class="form-control" maxlength="150" required placeholder="Ej. Guantes quirúrgicos" />
+                        </div>
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="vehicle-field mb-3">
+                        <label asp-for="CategoriaId" class="form-label">Categoría</label>
+                        <div class="vehicle-control">
+                            <select asp-for="CategoriaId" class="form-select" required>
+                                <option value="0">Seleccione una categoría</option>
+                                @foreach (var categoria in categorias)
+                                {
+                                    <option value="@categoria.Id">@categoria.Nombre</option>
+                                }
+                            </select>
+                        </div>
+                        <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer vehicle-modal-footer">
+                    <button type="button" class="btn btn-modal-cancel" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-modal-primary" id="btnEditarProducto">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

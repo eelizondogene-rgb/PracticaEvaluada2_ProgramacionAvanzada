@@ -29,7 +29,20 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
+<<<<<<< Updated upstream
                         @* Integrar aquí enlaces a Categoria y Producto una vez creados los controladores. *@
+=======
+                        <li class="nav-item">
+                            <a class="nav-link @(controladorActual == "Categoria" ? "active" : null)" asp-area="" asp-controller="Categoria" asp-action="Index" aria-current="@(controladorActual == "Categoria" ? "page" : null)">
+                                <i class="bi bi-tags-fill" aria-hidden="true"></i> Categorías
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(controladorActual == "Producto" ? "active" : null)" asp-controller="Producto" asp-action="Index">
+                                <i class="bi bi-capsule" aria-hidden="true"></i> Productos
+                            </a>
+                        </li>
+>>>>>>> Stashed changes
                     </ul>
                 </div>
             </div>

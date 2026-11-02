@@ -39,7 +39,11 @@
                                 <i class="bi bi-tags-fill" aria-hidden="true"></i> Categorías
                             </a>
                         </li>
-                        @* Persona 3: aquí va el enlace a Producto *@
+                        <li class="nav-item">
+                            <a class="nav-link @(controladorActual == "Producto" ? "active" : null)" asp-controller="Producto" asp-action="Index">
+                                <i class="bi bi-capsule" aria-hidden="true"></i> Productos
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

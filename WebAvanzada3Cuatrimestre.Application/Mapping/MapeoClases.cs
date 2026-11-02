@@ -15,7 +15,10 @@ namespace WebAvanzada3Cuatrimestre.Application.Mapping
             // Persona 2: Categoria
             CreateMap<Categoria, Dtos.CategoriaDto>().ReverseMap();
 
-            // Persona 3: aquí se agrega el mapeo de Producto
+            CreateMap<Producto, ProductoDto>()
+                .ForMember(dest => dest.CategoriaNombre, opt => opt.MapFrom(src => src.Categoria != null ? src.Categoria.Nombre : string.Empty))
+                .ReverseMap()
+                .ForMember(dest => dest.Categoria, opt => opt.Ignore());
 
         }
     }

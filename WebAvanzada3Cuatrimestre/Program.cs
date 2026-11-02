@@ -13,7 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Repositorio generico: misma interfaz e implementacion vistas en clase.
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-// Persona 2/3: registrar los servicios de Categoria y Producto al implementarlos.
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
 
 // Persona 2
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();

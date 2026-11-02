@@ -2,10 +2,6 @@
     ViewData["Title"] = "Categorías";
 }
 
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/css/categoria.css" asp-append-version="true" />
-
-
 <div class="duenno-page">
 
     <div class="page-header">
@@ -32,9 +28,9 @@
             <table id="tblCategoria" class="table table-duenno" style="width:100%">
                 <thead>
                     <tr>
-                        <th style="width:6%"><div class="th-content"><i class="bi bi-hash"></i> Id</div></th>
-                        <th><div class="th-content"><i class="bi bi-tag"></i> Nombre</div></th>
-                        <th style="width:14%"><div class="th-content"><i class="bi bi-gear"></i> Acciones</div></th>
+                        <th class="col-id" style="width:6.5rem"><div class="th-content"><i class="bi bi-hash"></i> Id</div></th>
+                        <th class="col-nombre"><div class="th-content"><i class="bi bi-tag"></i> Nombre</div></th>
+                        <th class="col-acciones" style="width:8.75rem"><div class="th-content"><i class="bi bi-gear"></i> Acciones</div></th>
                     </tr>
                 </thead>
                 <tbody></tbody>

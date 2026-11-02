@@ -4,8 +4,6 @@
     var categorias = ViewBag.Categorias as List<CategoriaDto> ?? new List<CategoriaDto>();
 }
 
-<link rel="stylesheet" href="~/css/categoria.css" asp-append-version="true" />
-
 <div class="duenno-page">
     <div class="page-header">
         <div class="page-header-content">
@@ -25,7 +23,12 @@
         <div class="table-responsive">
             <table id="tblProducto" class="table table-duenno" style="width:100%">
                 <thead>
-                    <tr><th>Id</th><th>Nombre</th><th>Categoría</th><th>Acciones</th></tr>
+                    <tr>
+                        <th class="col-id" style="width:6.5rem"><div class="th-content"><i class="bi bi-hash"></i> Id</div></th>
+                        <th class="col-nombre"><div class="th-content"><i class="bi bi-capsule"></i> Nombre</div></th>
+                        <th class="col-categoria" style="width:22%"><div class="th-content"><i class="bi bi-tags"></i> Categoría</div></th>
+                        <th class="col-acciones" style="width:8.75rem"><div class="th-content"><i class="bi bi-gear"></i> Acciones</div></th>
+                    </tr>
                 </thead>
                 <tbody></tbody>
             </table>

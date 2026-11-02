@@ -8,13 +8,24 @@
         <p>Administración del catálogo de productos médicos.</p>
     </section>
 
-    <a class="home-feature" asp-controller="Categoria" asp-action="Index">
-        <span class="home-feature-icon" aria-hidden="true"><i class="bi bi-tags"></i></span>
-        <div class="home-feature-copy">
-            <span class="home-feature-label">Módulo</span>
-            <h2>Categorías</h2>
-            <p>Consultar, registrar y actualizar las categorías del catálogo.</p>
-        </div>
-        <span class="home-feature-link">Abrir módulo <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-    </a>
+    <div class="home-modules">
+        <a class="home-feature" asp-controller="Categoria" asp-action="Index">
+            <span class="home-feature-icon" aria-hidden="true"><i class="bi bi-tags"></i></span>
+            <div class="home-feature-copy">
+                <span class="home-feature-label">Módulo</span>
+                <h2>Categorías</h2>
+                <p>Consultar, registrar y actualizar las categorías del catálogo.</p>
+            </div>
+            <span class="home-feature-link">Abrir módulo <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="home-feature" asp-controller="Producto" asp-action="Index">
+            <span class="home-feature-icon" aria-hidden="true"><i class="bi bi-capsule"></i></span>
+            <div class="home-feature-copy">
+                <span class="home-feature-label">Módulo</span>
+                <h2>Productos</h2>
+                <p>Consultar, registrar y actualizar los productos del catálogo.</p>
+            </div>
+            <span class="home-feature-link">Abrir módulo <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+        </a>
+    </div>
 </div>

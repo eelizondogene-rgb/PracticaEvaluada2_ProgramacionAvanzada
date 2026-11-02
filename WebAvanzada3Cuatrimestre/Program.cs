@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAvanzada3Cuatrimestre.Application.Mapping;
+using WebAvanzada3Cuatrimestre.Application.Repositories;
 using WebAvanzada3Cuatrimestre.Application.Services;
 using WebAvanzada3Cuatrimestre.Infrastructure.Data;
 using WebAvanzada3Cuatrimestre.Infrastructure.Repository;
@@ -21,6 +22,8 @@ builder.Services.AddScoped<ICategoriaServicio, CategoriaServicio>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));
 
 var app = builder.Build();
+// En Development, WebApplication ya inserta UseDeveloperExceptionPage al inicio del pipeline.
+// Llamarlo aquí lo duplicaría. Fuera de Development se usa la página /Home/Error.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

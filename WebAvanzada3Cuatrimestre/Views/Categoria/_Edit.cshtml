@@ -21,7 +21,7 @@
                         <label asp-for="Nombre" class="form-label">Nombre</label>
                         <div class="vehicle-control">
                             <i class="bi bi-person" aria-hidden="true"></i>
-                            <input asp-for="Nombre" class="form-control" placeholder="Ej. Material quirúrgico" autocomplete="off" required />
+                            <input asp-for="Nombre" class="form-control" placeholder="Ej. Material quirúrgico" autocomplete="off" required oninvalid="this.setCustomValidity('El nombre de la categoría es obligatorio.')" oninput="this.setCustomValidity('')" />
                         </div>
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>

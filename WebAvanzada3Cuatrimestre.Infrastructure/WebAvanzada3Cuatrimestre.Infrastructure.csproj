@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebAvanzada3Cuatrimestre.Application\WebAvanzada3Cuatrimestre.Application.csproj" />
     <ProjectReference Include="..\WebAvanzada3Cuatrimestre.Domain\WebAvanzada3Cuatrimestre.Domain.csproj" />
   </ItemGroup>
 

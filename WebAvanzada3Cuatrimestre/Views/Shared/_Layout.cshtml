@@ -1,3 +1,6 @@
+@{
+    var controladorActual = ViewContext.RouteData.Values["controller"]?.ToString();
+}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,20 +20,24 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light app-navbar">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <span class="brand-mark"><i class="bi bi-bag-plus-fill"></i></span>
+                    <span class="brand-mark"><i class="bi bi-heart-pulse" aria-hidden="true"></i></span>
                     <span>Productos <span class="brand-accent">Médicos</span></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Abrir menú">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="nav-link @(controladorActual == "Home" ? "active" : null)" asp-controller="Home" asp-action="Index" aria-current="@(controladorActual == "Home" ? "page" : null)">
+                                <i class="bi bi-house" aria-hidden="true"></i> Inicio
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Categoria" asp-action="Index"><i class="bi bi-car-front-fill"></i> Categorías</a>
+                            <a class="nav-link @(controladorActual == "Categoria" ? "active" : null)" asp-area="" asp-controller="Categoria" asp-action="Index" aria-current="@(controladorActual == "Categoria" ? "page" : null)">
+                                <i class="bi bi-tags-fill" aria-hidden="true"></i> Categorías
+                            </a>
                         </li>
                         @* Persona 3: aquí va el enlace a Producto *@
                     </ul>
@@ -47,7 +54,6 @@
     <footer class="app-footer">
         <div class="container">
             <span>&copy; 2026 Productos Médicos</span>
-            <span>Práctica Programada 2 · SC-701</span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

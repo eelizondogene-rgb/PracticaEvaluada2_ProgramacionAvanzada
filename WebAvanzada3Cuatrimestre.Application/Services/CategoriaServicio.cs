@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebAvanzada3Cuatrimestre.Application.Dtos;
-using WebAvanzada3Cuatrimestre.Infrastructure.Repository;
+using WebAvanzada3Cuatrimestre.Application.Repositories;
 
 namespace WebAvanzada3Cuatrimestre.Application.Services
 {
@@ -34,11 +34,25 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
             var categoriaEntity = _mapper.Map<Domain.Categoria>(categoria);
+            categoriaEntity.Nombre = (categoriaEntity.Nombre ?? string.Empty).Trim();
 
             if (!categoriaEntity.ValidarReglaNegocioNombreRequerido())
             {
                 respuesta.EsCorrecto = false;
                 respuesta.Mensaje = "El nombre de la categoría es requerido.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
+            if (NombreSuperaLongitudMaxima(respuesta, categoriaEntity.Nombre))
+            {
+                return respuesta;
+            }
+
+            if (await _categoriaRepository.ExistsCategoriaByNombreAsync(categoriaEntity.Nombre, categoriaEntity.Id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "Ya existe una categoría con ese nombre.";
                 respuesta.Codigo = 400;
                 return respuesta;
             }
@@ -59,11 +73,25 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
             var categoriaEntity = _mapper.Map<Domain.Categoria>(categoria);
+            categoriaEntity.Nombre = (categoriaEntity.Nombre ?? string.Empty).Trim();
 
             if (!categoriaEntity.ValidarReglaNegocioNombreRequerido())
             {
                 respuesta.EsCorrecto = false;
                 respuesta.Mensaje = "El nombre de la categoría es requerido.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
+            if (NombreSuperaLongitudMaxima(respuesta, categoriaEntity.Nombre))
+            {
+                return respuesta;
+            }
+
+            if (await _categoriaRepository.ExistsCategoriaByNombreAsync(categoriaEntity.Nombre, categoriaEntity.Id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "Ya existe una categoría con ese nombre.";
                 respuesta.Codigo = 400;
                 return respuesta;
             }
@@ -84,6 +112,14 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
         {
             var respuesta = new Respuesta<CategoriaDto>();
 
+            if (await _categoriaRepository.TieneProductosAsociadosAsync(id, cancellationToken))
+            {
+                respuesta.EsCorrecto = false;
+                respuesta.Mensaje = "No se puede eliminar la categoría porque tiene productos asociados.";
+                respuesta.Codigo = 400;
+                return respuesta;
+            }
+
             if (!await _categoriaRepository.DeleteCategoriaAsync(id, cancellationToken))
             {
                 respuesta.EsCorrecto = false;
@@ -92,6 +128,21 @@ namespace WebAvanzada3Cuatrimestre.Application.Services
             }
 
             return respuesta;
+        }
+
+        private const int LongitudMaximaNombre = 100;
+
+        private static bool NombreSuperaLongitudMaxima(Respuesta<CategoriaDto> respuesta, string nombre)
+        {
+            if (nombre.Length <= LongitudMaximaNombre)
+            {
+                return false;
+            }
+
+            respuesta.EsCorrecto = false;
+            respuesta.Mensaje = "El nombre de la categoría no puede superar los 100 caracteres.";
+            respuesta.Codigo = 400;
+            return true;
         }
     }
 }
